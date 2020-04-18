@@ -9,11 +9,9 @@
 function createBinaryTreeFromArray(arr) {
   const binaryTreeArray = [];
   arr.forEach((value, index) => {
-    const currentNode = value === null
-      ? null
-      : {
+    const currentNode = value === null ?
+      null : {
         value,
-        index,
         left: null,
         right: null
       };
