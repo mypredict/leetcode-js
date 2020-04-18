@@ -1,15 +1,5 @@
-var rotate = function(nums, k) {
-  let len=nums.length
-  let arr1 = nums.splice(k,len - k);
-  let arr2 = nums.splice(0, k);
-  let result =arr1.concat(arr2)
-  nums = result
-  return nums
-};
-
-let len=nums.length
-let arr1 = nums.splice(k,len - k);
-let arr2 = nums.splice(0, k);
-
-let arr2 = nums.splice(0, k);
-let arr1 = nums.splice(0);
+const aa = new Set([{a: 1}]);
+const bb = aa.add(2, 3, 4)
+console.log(aa)
+console.log(bb)
+console.log(aa === bb)
