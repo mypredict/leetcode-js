@@ -56,5 +56,5 @@ function maxPathSum(root) {
     }
   };
 */
-const root = createBinaryTreeFromArray([-10, 9, 20, null, null, 15, 7])[0];
+const root = createBinaryTreeFromArray([-10, 9, 20, null, null, 15, -7])[0];
 console.log(maxPathSum(root));

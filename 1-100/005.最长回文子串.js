@@ -12,7 +12,7 @@ console.log(longestPalindrome1('babad'));
 // 中心扩散法
 function longestPalindrome2(s) {
   let currentLongestSubstring = '';
-  for (let i=0, j=s.length; i<j; i++) {
+  for (let i = 0, j = s.length; i < j; i++) {
     // 奇数位
     let currentOddSubstring = s[i];
     let startOddIndex = i - 1;
