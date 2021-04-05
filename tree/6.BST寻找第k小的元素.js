@@ -1,11 +1,3 @@
-/*
-  1: 1 => 0
-  2: 2 => 1 2
-  3: 4 => 3 4 5 6
-  4: 8 => 7 8 9 10 11 12 13 14
-  ...
-*/
-
 function createBinaryTreeFromArray(arr) {
   const binaryTreeArray = [];
   arr.forEach((value, index) => {
@@ -13,7 +5,7 @@ function createBinaryTreeFromArray(arr) {
       null : {
         value,
         left: null,
-        right: null
+        right: null,
       };
     binaryTreeArray.push(currentNode);
     if (index === 0) return;
@@ -28,4 +20,21 @@ function createBinaryTreeFromArray(arr) {
   return binaryTreeArray;
 }
 
-console.log(createBinaryTreeFromArray([-10, 9, 20, null, null, 15, 7])[0]);
+let index = 0;
+let value;
+function findKIndexTree(root, k) {
+  if (root === null) return;
+
+  findKIndexTree(root.left, k);
+  index++;
+  if (index === k) {
+    value = root;
+  }
+  findKIndexTree(root.right, k);
+}
+
+const binaryTree = createBinaryTreeFromArray([5,3,6,2,4,null,null,1])[0];
+console.log(binaryTree);
+
+const kIndexTree = findKIndexTree(binaryTree, 3);
+console.log(value);

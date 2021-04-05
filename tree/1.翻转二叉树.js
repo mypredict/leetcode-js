@@ -1,11 +1,3 @@
-/*
-  1: 1 => 0
-  2: 2 => 1 2
-  3: 4 => 3 4 5 6
-  4: 8 => 7 8 9 10 11 12 13 14
-  ...
-*/
-
 function createBinaryTreeFromArray(arr) {
   const binaryTreeArray = [];
   arr.forEach((value, index) => {
@@ -21,11 +13,24 @@ function createBinaryTreeFromArray(arr) {
     // 父节点的位置及计算属于父节点的左右节点
     const parentNodeIndex = Math.round(index / 2 - 1);
     const parentNodePosition = index % 2 === 0 ? 'right' : 'left';
-    if (binaryTreeArray[parentNodeIndex]) {
-      binaryTreeArray[parentNodeIndex][parentNodePosition] = currentNode;
-    }
+    binaryTreeArray[parentNodeIndex][parentNodePosition] = currentNode;
   });
   return binaryTreeArray;
 }
 
-console.log(createBinaryTreeFromArray([-10, 9, 20, null, null, 15, 7])[0]);
+function invertTree(root) {
+  if (root === null) return root;
+
+  [root.left, root.right] = [root.right, root.left];
+
+  invertTree(root.left);
+  invertTree(root.right);
+
+  return root;
+}
+
+const binaryTree = createBinaryTreeFromArray([-10, 9, 20, null, null, 15, 7])[0];
+console.log(binaryTree);
+
+const invertedTree = invertTree(binaryTree);
+console.log(invertedTree);
